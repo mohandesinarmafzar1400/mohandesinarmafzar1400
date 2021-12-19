@@ -1,0 +1,62 @@
+<TextInput>
+	background_color: (1,1,1,1)
+    multiline:False
+    font_size:30 
+<test>
+	AsyncImage:
+		source:'Logimg.jpg'
+		size: root.width, root.height
+		Label:
+			markup: True
+			size: root.width, 1.75*root.height
+			text: 'Login'
+			font_size: 50
+			# Text Properties
+			color: (1,1,1,1)
+			bold: True
+			italic: True
+			outline_color: (0,0,0,1)
+			outline_width: 5	
+		AsyncImage:
+			source:'Pi.png'
+			size: root.width,1.2*root.height
+			GridLayout:
+				size: .8*root.width,.7*root.height
+				pos: .1*root.width,-.01*root.height
+				spacing:20
+				row_force_default: True 
+				row_default_height:50
+				padding:200
+				cols:1
+				TextInput:
+					id: fname
+					hint_text: "UserName"
+
+				TextInput:
+					id: lname
+					hint_text: "Password"
+
+				Button:
+					text: "Register"
+					font_size:35
+					markup: True
+					underline: True
+					background_color:(0,0,0,0)
+					#Funtion Call
+					on_release: root.Reg()
+					
+		Button:
+			text:"Create Account"
+			markup:True
+			color: (1,1,1,1)
+			bold: True
+			italic: True
+			outline_color: (0,0,0,1)
+			outline_width: 5
+			#set on the window
+			size: 150,50
+			pos: .65*root.width,.1*root.height
+			background_color:(0,0,0,0)
+			#Function Call
+			on_release:root.CA()
+					

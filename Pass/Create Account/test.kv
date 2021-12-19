@@ -1,0 +1,84 @@
+#:import utils kivy.utils
+<TextInput>
+	background_color: (1,1,1,1)
+    multiline:False
+    font_size:30  
+
+<test>
+    AsyncImage:
+        size: root.width,root.height
+        source: 'Logimg.jpg'
+    AsyncImage:
+        source: 'Pi.png'
+        size: root.width, 1.5*root.height
+        Label:
+            markup: True
+            size: root.width, 1.89*root.height
+            text: 'Create Account'
+            font_size: 30
+			# Text Properties
+			color: (1,1,1,1)
+			bold: True
+			italic: True
+			outline_color: (0,0,0,1)
+			outline_width: 5
+            
+
+        GridLayout:
+            size: root.width,.85*root.height
+            cols:1
+            spacing:20
+            row_force_default: True 
+            row_default_height:50
+            padding:200
+            
+            TextInput:
+                id: fname
+                hint_text:"First Name"
+                
+            
+            TextInput:
+                id: lname
+                hint_text:"Last Name"
+            
+            TextInput:
+                id: uname
+                hint_text:"User Name"
+            
+            TextInput:
+                id: PW
+                hint_text:"Password"
+                password: True
+            
+            GridLayout:
+                cols:2    
+                Label:
+                    text_size: self.size
+                    halign: 'right'
+                    valign: 'middle'
+                    text: "Male"
+                    font_size:25
+
+                CheckBox:
+                    group: "Gender"
+                    size_hint_y: None
+                    height: '10'
+
+                Label:
+                    text_size: self.size
+                    halign: 'right'
+                    valign: 'middle'
+                    text: "Female"
+                    font_size:25
+                
+                CheckBox:
+                    group: "Gender"
+                    size_hint_y: None
+                    height: '10'
+
+            Button:
+                text: "Create"
+                font_size: 25
+                background_color: utils.get_color_from_hex('#000000')
+                color: (1,1,1,1)
+                on_release: root.Create()
