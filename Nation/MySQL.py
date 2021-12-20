@@ -1,8 +1,8 @@
 import mysql.connector
-#Create Database dbfootball With User & Password Clint
+#Variable For Test
 ur="root"
 pw="Razi0023161469"
-
+#Create Database dbfootball and Tables With User & Password Clint
 def CreateDBT(ur,pw):
     mydb = mysql.connector.connect(
     host="localhost",
