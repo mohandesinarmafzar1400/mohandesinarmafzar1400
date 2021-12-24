@@ -1,0 +1,22 @@
+<MyButton>:
+    #background_color :(0,0,0,0)
+    size: root.width,self.height
+    on_release:
+        root.print_data(self.input_data)
+    Image:
+        id:fname 
+        center_x:self.parent.center_x-878
+        center_y:self.parent.center_y
+        
+        
+
+    RecycleView:
+        data: []
+        viewclass: "MyButton"
+        RecycleBoxLayout:
+            padding : 30
+            default_size: None, None
+            default_size_hint: 1, None
+            size_hint_y: None
+            height:self.minimum_height
+            orientation: 'vertical'
