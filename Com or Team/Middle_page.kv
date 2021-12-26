@@ -1,0 +1,42 @@
+<Mp>
+    GridLayout:
+        cols:1
+        size : root.width,root.height
+        AsyncImage:
+            source:"https://image.winudf.com/v2/image/Y29tLkxpdmVXYWxscGFwZXJzVUEuYXBwMDQ5NV9zY3JlZW5fMV8wc2J4bTN3Yg/screen-1.jpg?fakeurl=1&type=.jpg"
+            
+            Label:
+                size:root.width,root.height*1.5
+                text:"Please Select An Option:"
+                background_color:(0,0,0,0)
+                color : (0,0,0,1)
+                font_size :70
+                italic: True
+                bold: True
+                outline_color:(0,0,0,1)
+                outline_width:1
+                
+            GridLayout:
+                cols: 2
+                size:root.width,root.height
+                Button:
+                    text:"Competitions"
+                    background_color:(0,0,0,0)
+                    color : (0,1,1,1)
+                    font_size :70
+                    italic: True
+                    bold: True
+                    outline_color:(0,0,0,1)
+                    outline_width:1
+                    on_release:root.Next_page(1)
+                Button:
+                    text:"Teams"
+                    background_color:(0,0,0,0)
+                    color : (0,1,1,1)
+                    font_size :70
+                    italic: True
+                    bold: True
+                    outline_color:(0,0,0,1)
+                    outline_width:1
+                    on_release:root.Next_page(2)
+            

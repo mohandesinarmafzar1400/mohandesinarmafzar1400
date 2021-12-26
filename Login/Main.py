@@ -2,12 +2,14 @@ from kivy.app import App
 from kivy.uix.widget import Widget
 from kivy.lang import Builder
 from kivy.core.window import Window
-
+import re
 Builder.load_file('test.kv')
 
 class test(Widget):
 	def Reg(self):
-		print("reg")
+		if (re.match("^[a-zA-Z0-9_.-]+$", self.ids.fname.text)):
+			pass	
+		
 	def CA(self):
     		print("CA")
 
