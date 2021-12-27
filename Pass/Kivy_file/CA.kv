@@ -1,0 +1,62 @@
+<TextInput>
+	background_color: (1,1,1,1)
+    multiline:False
+    font_size:30  
+
+<CA_Lay>
+    AsyncImage:
+        size: root.width,root.height
+        source: 'Pic/Logimg.jpg'
+        AsyncImage:
+            source: 'Pic/Pi.png'
+            size: root.width, 1.55*root.height
+        GridLayout:
+            size: root.width,.85*root.height
+            cols:1
+            spacing:20
+            row_force_default: True 
+            row_default_height:50
+            padding:200
+            
+            TextInput:
+                id: fname
+                hint_text:"First Name"
+                
+            
+            TextInput:
+                id: lname
+                hint_text:"Last Name"
+            
+            TextInput:
+                id: uname
+                hint_text:"User Name"
+            
+            TextInput:
+                id: pw
+                hint_text:"Password"
+                password: True
+            GridLayout:
+                size: root.width,root.height
+                cols:2
+                Label:
+                    text : "Male"
+                    font_size : 25
+                CheckBox:
+                    group: "Gender"
+                    on_active: root.gender(self,self.active,"Male")
+                    active : True
+                Label:
+                    text : "Female"
+                    font_size : 25
+                CheckBox:
+                    group: "Gender"
+                    on_active: root.gender(self,self.active,"Female")
+                    
+            Button:
+                text: "[u][i][size=50][color=FF9945]Create Account[/color][/size][/i][/u]"
+                markup: True
+                bold : True
+                italic : True
+                background_color: (0,0,0,0)
+                color: (1,1,1,1)
+                on_release: root.Create()

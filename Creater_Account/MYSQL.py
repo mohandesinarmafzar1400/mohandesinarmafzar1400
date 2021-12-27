@@ -46,7 +46,7 @@ def Insert_Iteams(table_name,*args):
         Create_DBT()
     mycursor.execute("USE dbfootball")
     #if not 
-    
+
     #Defining Variable For Work
     args = list(args)
     statement_cols = "INSERT INTO {} (".format(table_name)    
@@ -66,7 +66,6 @@ def Insert_Iteams(table_name,*args):
             args.pop(0)
         statement_cols += ") "
         statement_vals += ")"
-        
         for i in range( 0 , len(args) , 3 ):
                 if (Check_PCE("countries",args[0])):
                     #If Exists Country In Table Countriies With Primary Key That As Input 
@@ -74,9 +73,7 @@ def Insert_Iteams(table_name,*args):
                 else :
                     #Do Noting
                     pass
-        
         statement_final = statement_cols + statement_vals
-        
     #For Cersons Insert_Iteams
     elif (table_name == "persons"):
         for i in range(5):
@@ -110,28 +107,23 @@ def Check_PCE(table_name,val):
     user=ur,
     password=pw,
     )
-    Check = mydb.cursor()
-    Check.execute("SHOW DATABASES LIKE \'dbfootball\'")
+    mycursor = mydb.cursor()
+    mycursor.execute("SHOW DATABASES LIKE 'dbfootball'")
     #Check Exists Database Or Not
-    Exists_DB = [x for x in Check]
+    Exists_DB = [x for x in mycursor]
     if len(Exists_DB) == 0:
         Create_DBT()
-        return True
-    Check.execute("USE dbfootball")
+    mycursor.execute("USE dbfootball")
     #if not 
-    if (' ' in val):
-        val='\'{}\''.format(val)
-    else :
-        val='\'{}\''.format(val)
+    val='\'{}\''.format(val)
     #Defining Variable For Work
     if (table_name == "persons"):
         statement_final = "SELECT uname FROM persons WHERE uname = {}".format(val)
     elif (table_name == "countries"):
-        statement_final = "SELECT country_id FROM countries WHERE country_id = {}".format(val)
+        statement_final = "SELECT country_id FROM countries WHERE country_id = '{}'".format(val)
     #Elif For Othe Tables
-    Check.execute(statement_final)
-    
-    for x in Check:
+    mycursor.execute(statement_final)
+    for x in mycursor:
         if len(x) == 1:
             return False
     else :
@@ -139,7 +131,7 @@ def Check_PCE(table_name,val):
 
 
 #Select Iteam Form Table Countries
-def Select_IC(table_name, val):
+def Select_IC():
     mydb = mysql.connector.connect(
     host="localhost",
     user=ur,
@@ -153,33 +145,21 @@ def Select_IC(table_name, val):
         Create_DBT()
     mycursor.execute("USE dbfootball")
     #if not 
-    if (table_name == "countries"):
-        statement_final = "SELECT * FROM countries"
-        mycursor.execute(statement_final)
-        temp = mycursor.fetchall()
-        return temp
-    elif (table_name == "persons"):
-        statement_final = "SELECT * FROM persons where uname = \'{}\'".format(val)
-        mycursor.execute(statement_final)
-        for i in mycursor:
-            return i
+    
+    statement_final = "SELECT * FROM countries"
+
     #Elif For Othe Tables
-    
-    
+    mycursor.execute(statement_final)
+    #Defining Variable For Work
+    temp = mycursor.fetchall()
+    return temp
 
 #Drop_DB()    
-#Check_PCE("persons","123")
 #Create_DBT()
-# Check_PCE("persons","123")
-# #A=Select_IC("persons","amir")
-# #print(A)
-# Insert_Iteams("persons","uname","ps","fname","lname","gender","amir",str(hash(123)),"amir","rezai","Male")
-# Insert_Iteams("persons","uname","ps","fname","lname","gender","reza",str(hash(123)),"zahra","zahrai","Female")
-# Insert_Iteams("persons","uname","ps","fname","lname","gender","amir mahdi",str(hash(123)),"Mahdi","Mahdi zade","Male")
-# Insert_Iteams("persons","uname","ps","fname","lname","gender","Amirmahdi",str(hash(123)),"Samira","Samirai","Female")
-
-#Insert_Iteams("countries","country_id","country_name","country_logo","am  ir1123","Razi 21","amirmah di")
-#Insert_Iteams("persons","uname","ps","fname","lname","amir1138","1","2","3","4") 
+#Select_Iteams("persons","uname","123")
+#Insert_Iteams("persons","uname","ps","fname","lname","amir","123","amirm ahdi","Ra zi","m ale")
+#Insert_Iteams("countries","country_id","country_name","country_logo","amir1123","Razi321","amirmahdi")
+#Insert_Iteams("persons","uname","ps","fname","lname","amir1138","1","2","3","4")
 
 
-#PPPAAASSSSSSS 11
+#PPPAAASSSSSSS

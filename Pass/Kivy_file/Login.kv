@@ -1,0 +1,53 @@
+<TextInput>
+	background_color: (1,1,1,1)
+    multiline:False
+    font_size:30 
+<Login_Lay>
+	AsyncImage:
+		source:'Pic/Logimg.jpg'
+		size: root.width, root.height
+	
+		AsyncImage:
+			source:'Pic/Pi.png'
+			size: root.width,1.2*root.height
+			GridLayout:
+				size: .8*root.width,.7*root.height
+				pos: .1*root.width,-.01*root.height
+				spacing:20
+				row_force_default: True 
+				row_default_height:50
+				padding:200
+				cols:1
+				TextInput:
+					id: uname
+					hint_text: "UserName"
+
+				TextInput:
+					id: pw
+					hint_text: "Password"
+					password : True
+
+				Button:
+					text: "[u][i][size=50][color=FF9945]Login[/color][/size][/i][/u]"
+					markup: True
+					bold : True
+					italic : True
+					background_color: (0,0,0,0)
+					color: (1,1,1,1)
+					#Funtion Call
+					on_release: root.Reg()
+					
+		Button:
+			text: "[u][i][size=25][color=FF9945]Create Account[/color][/size][/i][/u]"
+			markup: True
+			bold : True
+			italic : True
+			background_color: (0,0,0,0)
+			color: (1,1,1,1)
+			#set on the window
+			size: 150,50
+			pos: .65*root.width,.1*root.height
+			background_color:(0,0,0,0)
+			#Function Call
+			on_release: root.CA()
+					

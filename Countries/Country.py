@@ -19,6 +19,7 @@ RAN = len(Pic)*.111
 class Country(ScrollView,AsyncImage):
     def __init__(self,**kwargs):
         super(Country, self).__init__(**kwargs)
+        
         self.source='3090.jpg'
         
         self.root=GridLayout(cols=1,size_hint_y=RAN)

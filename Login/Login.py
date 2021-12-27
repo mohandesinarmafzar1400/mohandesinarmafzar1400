@@ -3,15 +3,20 @@ from kivy.uix.widget import Widget
 from kivy.lang import Builder
 from kivy.core.window import Window
 import re
+from MYSQL import *
 Builder.load_file('test.kv')
 
 class test(Widget):
 	def Reg(self):
 		if (re.match("^[a-zA-Z0-9_.-]+$", self.ids.fname.text)):
-			pass	
-		
+			result=Check_PCE(ur,pw,"persons",self.ids.fname.text)
+			print(result)
+			if not result :
+    				#next Page
+					pass
 	def CA(self):
-    		print("CA")
+    		#Page Create Account
+			pass
 
 class Main(App):
 	Window.size=(1380,780)

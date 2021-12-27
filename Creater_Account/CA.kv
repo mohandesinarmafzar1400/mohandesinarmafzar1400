@@ -46,39 +46,32 @@
                 hint_text:"User Name"
             
             TextInput:
-                id: PW
+                id: pw
                 hint_text:"Password"
                 password: True
-            
             GridLayout:
-                cols:2    
+                size: root.width,root.height
+                cols:2
                 Label:
-                    text_size: self.size
-                    halign: 'right'
-                    valign: 'middle'
-                    text: "Male"
-                    font_size:25
-
+                    text : "Male"
+                    font_size : 25
                 CheckBox:
                     group: "Gender"
-                    size_hint_y: None
-                    height: '10'
-
+                    on_active: root.gender(self,self.active,"Male")
+                    active : True
                 Label:
-                    text_size: self.size
-                    halign: 'right'
-                    valign: 'middle'
-                    text: "Female"
-                    font_size:25
-                
+                    text : "Female"
+                    font_size : 25
                 CheckBox:
                     group: "Gender"
-                    size_hint_y: None
-                    height: '10'
-
+                    on_active: root.gender(self,self.active,"Female")
+                    
             Button:
-                text: "Create"
-                font_size: 25
-                background_color: utils.get_color_from_hex('#000000')
+                text: "[u][i][size=50][color=FF9945]Create Account[/color][/size][/i][/u]"
+                font_size: 50
+                markup: True
+                bold : True
+                italic : True
+                background_color: (0,0,0,0)
                 color: (1,1,1,1)
                 on_release: root.Create()
