@@ -20,8 +20,9 @@ class Login_Lay(Screen):
 					person=Select_IC("persons",uname)
 					
 					if person[2] == pw:
+						self.manager.transition.direction = 'right'
 						self.manager.current = 'Country'
-						pass
+						
 		else :	
 			if (uname == ""):
 				self.ids.uname.text=""
@@ -35,10 +36,15 @@ class Login_Lay(Screen):
 				self.ids.pw.background_color=(1,0,0,1)
 			else :
 				self.ids.pw.background_color=(0,1,1,1)	
+				
 	def CA(self):
     		#Page Create Account
+			self.manager.transition.direction = 'up'
 			self.manager.current = 'Create Account'	
-
+	def RP(self):
+    		#Page Recover Account
+			self.manager.transition.direction = 'down'
+			self.manager.current = 'Recovery Password'
 
 
 # class Main(App):

@@ -31,6 +31,7 @@ class CA_Lay(Screen):
                 self.ids.uname.background_color=(0,0,1,1)
             else :
                 Insert_Iteams("persons","uname","ps","fname","lname","gender",uname,pw,fname,lname,ge)
+                self.manager.transition.direction = 'down'
                 self.manager.current = 'Login'
         #If Dont Fill All Field
         else :
@@ -61,6 +62,10 @@ class CA_Lay(Screen):
     def gender(self,instance,value,gender):
         if value == True:
             __class__.Gender = gender
+    def login(self):
+        print("=========")
+        self.manager.transition.direction = 'down'
+        self.manager.current = 'Login'
 
 
 # class Main(App):

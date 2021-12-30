@@ -30,8 +30,24 @@ def Drop_DB():
     )   
     mycursor = mydb.cursor()
     mycursor.execute("DROP DATABASE IF EXISTS dbfootball")
+#For persons (For Page Recovry Password)    
+def update(pas,uname):
+    mydb = mysql.connector.connect(
+    host="localhost",
+    user=ur,
+    password=pw
+    )
+    mycursor = mydb.cursor()
+    mycursor.execute("USE dbfootball")
+    #Check Person With Uname Is Exists Or Not
+    res = Check_PCE("persons",uname)
+    if not res :
+        statement="UPDATE persons SET ps = '{}' WHERE uname = \'{}\'".format(pas,uname)
+        print(statement)
+        mycursor.execute(statement)
+        mydb.commit()
+    return ( not res )
     
-
 def Insert_Iteams(table_name,*args):
     mydb = mysql.connector.connect(
     host="localhost",
