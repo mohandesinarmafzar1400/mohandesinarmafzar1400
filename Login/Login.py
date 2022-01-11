@@ -3,7 +3,7 @@ from kivy.uix.widget import Widget
 from kivy.lang import Builder
 from kivy.core.window import Window
 import re
-from MYSQL import *
+
 Builder.load_file('test.kv')
 
 class test(Widget):
